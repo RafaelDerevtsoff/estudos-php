@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <p>Texto Inicial</p>
+    </div>
+    <script>
+        const div = document.querySelector('div')
+        // separa o que esta dentro 
+        div.innerHTML = 'Texto Alterado'
+        // separa o que está fora inclusive o própio elemento
+        // div.outerHTML = 'Texto Alterado'
+
+        // vai adicionar antes do elemento atual
+        div.insertAdjacentHTML('beforebegin',"<p>Antes do inicio</p>")
+        // tbm posso colocar dentro da div
+        div.insertAdjacentHTML('afterbegin',"<p>dentro div</p>")
+        // coloca o elemento antes do fim do elemento
+        div.insertAdjacentHTML('beforeend',"<p>antes do fim</p>")
+        // coloca logo em seguida do elemento
+        div.insertAdjacentHTML('afterend',"<p>depois do fim do elemento</p>")
+
+        // se vc quer só o texto se usa 
+        console.log(div.innerText)
+    </script>
+</body>
+
+</html>

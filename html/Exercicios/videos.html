@@ -1,0 +1,66 @@
+<video id="meuVideo" width="800" height="450" controls autoplay controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+        seu browser não suporta esta merda compra um pc novo .
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+<!-- a area de fora define a moldura do progresso -->
+    <div>
+
+    <!-- preenche com a cor -->
+    </div>
+</div>
+
+<div>
+    <!-- vai ser o botão de play -->
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+<script>
+    function mover(tempo)
+        {
+            css
+        }
+</script>
+<style>
+    .progresso
+        {
+            height: 20px;
+            width: 500px;
+            border: solid 1px #444444;
+            margin: 20px ;
+        }
+    /* para indicar uma div dentro de uma classe é necessário fazer igual ao caso abaixo */
+    .progresso > div 
+        {
+            background-color: red;
+            color: white;
+            height: 100%;
+            text-align: right;
+            font-size: 14px;
+            width: 0%;
+        }
+</style>
+
+<script>
+    //função pra dar play e pause no video
+    function configvideo(id)
+        {
+            const video = document.getElementById(id)
+            // é para evitar o menu que aparece no botão direito
+            video.oncontextmenu = () => false
+            // voupegar o elemento e o id na linha a baixo
+            document.querySelector(`[wm-play=${id}]`).onclick = e => video.play()
+            document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause()
+            
+            setInterval(() => {
+                // pra pegar o percentual e o tempo 
+               const percentual = (video.currentTime / video.duration)*100 ;
+               const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+               valorDiv.style.width=`${percentual}%`
+               valorDiv.innerHTML = `${percentual.toFixed(1)}%`
+            },500)
+        }    
+    
+        configvideo('meuVideo')
+</script>

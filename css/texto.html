@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Texto</title>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <style>
+        /* ... */
+        * {
+            margin: 0;
+        }
+        html{
+            font-size: 32px;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        div{
+            font-size: 50px;
+        }
+        p{
+            /* valores padrões */
+            font-size: 1em;
+            font-size: 100%;
+            font-size: 16px;
+            font-size: 12pt;
+            /* UNIDADES ABSOLUTAS */
+            font-size: 100px/*tamanho do pixel é relativo*/;
+            font-size: 72pt;/*pontos(seria a mesma coisa de uma polegada*/
+            font-size: 1in;/*polegadas*/
+
+            /* unidades relativas */
+            font-size: 2.2em;/* usa a referencia mais proxima nesse caso a div*/
+            font-size: 2.2rem;/*elevai pegar uma referencia acima nesse caso o html*/
+            font-size: 50vh;/*DIVIDE EM 100 partes a largura*/
+            font-size: 10vw;
+
+            /* familias de fontes */
+            font-family: monospace;
+            font-family: georgia,serif;
+            font-family: verdana,sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>
+            Que texto
+            <br>legal!!!
+        </p>
+    </div>
+    <a href="http://google.com" class="botao destaque">Google</a>
+</body>
+
+</html>

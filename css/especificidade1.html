@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Especificidade CSS</title>
+    <style>
+        /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+        /* 
+            linhas gerais as regras de preferencia são
+
+            1. regras com  !important ele é a prioridade mais forte (se possivel evitar sempre)
+            2.seletores mais especificos (quanto maior a hierarquia mais forte por exemplo em elemento e uma classe P.classe)
+            3.ultima regra processada (em caso de empate na preferencia o ultimo a ser processado ganha)
+        */
+        p{
+            background-color: royalblue;
+        }
+        /* uma classe é mais especifica que um elemento portanto ela ganha da tag P */
+        .observacao{
+            background-color: slateblue;
+            border: dashed 5px;
+            padding: 20px;
+            font-size: 40px;
+        }
+        /* ja nesse caso é uma classe dentro do elemento então ele ganha  */
+        p.observacao{
+            padding:2px;
+            background:linear-gradient(to right, red , yellow)
+        }
+    </style>
+</head>
+
+<body>
+    <p class='observacao'>Olha essa observação!!!!</p>
+</body>
+
+</html>

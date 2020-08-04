@@ -1,0 +1,116 @@
+asasasasdadasdasd
+<div wm-slider>
+<p>
+    <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="muro da cidade" width="520" height="342" title="Muro da cidade">
+
+</p>
+<p>
+    <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="intro" height="342">
+</p>
+<p class="circular">
+    <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="">
+</p>
+<p class="Texto">
+    <img src="http://files.cod3r.com.br/curso-web/avatar.jpg"
+    alt="avatar" height="50" align="left">
+    djasiodja da s asd as das d asd asd ddasdx da 
+    dasdasds d asd as das d das d as das d asd ad
+    shfhuifhgdfh  fjsdfjo fisjdofjs fiosjfjs dosj
+    isjadi asdjasidj
+
+</p>
+
+<p class="cidade"></p>
+
+<p>
+    <!-- serve para ter varias imagens pra cada tipo de situação -->
+    <picture>
+        <souce srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+            media="{min-width: 600}">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="logo">
+    </picture>
+    </p>
+
+</div>
+<script> 
+    // função para definir os slides
+    // querySelectorAll retorna um node list é necessário tranformar em arrey antes de mexer(linha 51)
+    // Array.from tranforma um elemento node em arrey(linha 53)
+    //setTimeout serve como temporizador e recebe dois parametros (linha 55)
+    // agora criamos uma onção para exibir os slides  e para saber quando exibir o proximo slide (linha 55)
+    // A Largura da tela pode ser definido pela propriedade innerWidth (linha 61)
+    // estou  dizendo que ele vai começar desse ponto (linha 64)
+    // colocamos o paso fixo em 5 (linha 66)
+    // criamos uma função que mostra quanod o slide começa e quando termina e para exibir linha(67)
+    // serve para pegar o index do slide e retornar para o primeiro se for preciso(linha 73)
+    /*const p = document.querySelector('[wm-slider] > p')
+    p.style.display= 'block';   
+    mudarimg(p,1500,-520,5,() => {
+        console.log('cabou meu consagrado');
+    })*/
+    function mover(elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo
+        if (novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+        } else {
+            callback()
+        }
+    }
+    function slider () 
+        {
+        const elementos = document.querySelectorAll('[wm-slider] > p')
+        const slides = Array.from(elementos)
+        exibirSlide(slides, slides[0])
+        }
+    function exibirSlide(slides, slide) 
+        {
+        slide.style.display = 'block'
+
+        const inicio = innerWidth //pega a largura da pagina
+        const fim = -slide.clientWidth
+
+        slide.style.left = inicio + 'px'
+
+            mover(slide, inicio, fim, 5, () => 
+            {
+                exibirSlide(slides, getProximo(slides, slide))
+            })
+    }
+    function getProximo(lista, atual) 
+        {
+            const i = lista.indexOf(atual) + 1
+            return i < lista.length ? lista[i] : lista[0]
+        }
+        slider();
+    </script>
+    <img name="slide" width="400" height="200">
+<style>
+    p
+        {
+            position: absolute;
+            display: none; 
+        }
+
+    .circular{
+        width: 520px;
+        background-color: #444444;
+    }
+
+    .Texto{
+        width: 400px;
+    }
+
+    .Texto img{
+        margin: 0px 12px 0px 12px;
+    }
+
+    .cidade{
+        width: 513px;
+        height: 342px;
+        background-image: url(http://files.cod3r.com.br/curso-web/imagem4.jpg);
+        background-position: center;
+        background-repeat:no-repeat;
+        background-size: 200%;
+    }
+</style>

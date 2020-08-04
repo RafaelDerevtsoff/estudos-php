@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios Html</title>
+</head>
+<body>
+    <header>
+        Exercicios Html<br><br>
+    </header>
+    <nav>
+        <a href wm-nav="Exercicios/teste.html">01-Exercicios teste</a>|
+        <a href wm-nav="Exercicios/listas.html">02-Lista</a>|
+        <a href wm-nav="Exercicios/listaalinhada.html">03-Lista alinhada</a>|
+        <a href wm-nav="Exercicios/links.html">04-chineelo</a>|
+        <a href wm-nav="Exercicios/tabela.html">05-tabela</a>|
+        <a href wm-nav="Exercicios/form/form.html">06-Formulário</a>|
+        <a href wm-nav="Exercicios/images.html">07-imagens</a>|
+        <a href wm-nav="Exercicios/videos.html">08-videeeos</a>|
+
+    </nav>
+    <section id="conteudos"></section>
+    <footer>
+
+    </footer>
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(Link => {
+        const conteudo = document.getElementById('conteudos')
+           Link.onclick = function(e)
+            {
+                e.preventDefault()
+                console.log("Link")
+                fetch(Link.getAttribute('wm-nav'))
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+            
+        })
+    </script>
+</body>
+</html>
